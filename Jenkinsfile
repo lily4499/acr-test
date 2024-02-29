@@ -42,5 +42,16 @@ pipeline {
                 }
             }
         }
+        stage('Trigger Jenkins Job to Push Docker Image to ACR') {
+            when {
+                expression { params.TERRAFORM_ACTION == 'apply' }
+            }
+            steps {
+                script {
+                    // Trigger another Jenkins job to push Docker image to ACR
+                    build job: 'push-node-express-app-acr', wait: true
+                }
+            }
+        }
     }
 }
