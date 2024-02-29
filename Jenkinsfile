@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/lily4499/setup-ecr-eks.git'
+                git branch: 'main', url: 'https://github.com/lily4499/acr-test.git'
             }
         }
 
